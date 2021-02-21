@@ -14,30 +14,40 @@ public class Album {
         this.artist = artist;
         this.songs = new ArrayList<Song>();
     }
-    public boolean addSong(String title, double duration){
+
+    public boolean addSong(String title, double duration) {
         Song tempSong = findSong(title);
-        if (tempSong == null){
-            tempSong = new Song(title,duration);
+        if (tempSong == null) {
+            tempSong = new Song(title, duration);
             this.songs.add(tempSong);
             return true;
-        }else {
+        } else {
             return false;
         }
 
     }
-    private Song findSong(String titleOfSong){
-        for (int i=0;i<this.songs.size();i++){
+
+    private Song findSong(String titleOfSong) {
+        for (int i = 0; i < this.songs.size(); i++) {
             Song song = this.songs.get(i);
-            if (song.getTitle().equals(titleOfSong)){
+            if (song.getTitle().equals(titleOfSong)) {
                 return song;
             }
         }
         return null;
     }
-    public boolean addToPlayList(int trackNumberOfSongsInTheAlbum, LinkedList<Song> thePlaylist){
 
+    public boolean addToPlayList(int trackNumberOfSongsInTheAlbum, LinkedList<Song> thePlaylist) {
+        int index = trackNumberOfSongsInTheAlbum -1;
+        if ((index > 0) && (index<=this.songs.size())){
+            thePlaylist.add(this.songs.get(index));
+            return true;
+        }
+        System.out.println("This album does not have a track " + trackNumberOfSongsInTheAlbum);
+        return false;
     }
-    public boolean addToPlayList(String titleOfSong, LinkedList<Song> thePlaylist){
+
+    public boolean addToPlayList(String titleOfSong, LinkedList<Song> thePlaylist) {
 
     }
 
