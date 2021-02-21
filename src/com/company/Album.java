@@ -28,6 +28,9 @@ public class Album {
     }
 
     private Song findSong(String titleOfSong) {
+        //for(Song song: this.songs) {
+        //if(song.getTitle.................
+
         for (int i = 0; i < this.songs.size(); i++) {
             Song song = this.songs.get(i);
             if (song.getTitle().equals(titleOfSong)) {
